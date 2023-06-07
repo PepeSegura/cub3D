@@ -1,0 +1,76 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
+#    Updated: 2023/06/07 19:09:11 by psegura-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+### Colors ###
+
+#RESET	=	\033c
+GREEN	=	\033[1;32m
+RED		=	\033[0;31m
+CYAN	=	\033[0;36m
+WHITE	=	\033[0m
+
+NAME = cub3D
+
+SRCS =											\
+		srcs/main.c								\
+												\
+		srcs/parser/store_file.c				\
+												\
+
+OBJS = $(SRCS:%.c=objs/%.o)
+
+LIB = libft/libft.a
+
+CC = clang
+
+# MAKEFLAGS += -j6
+
+CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
+CFLAGS += -I inc
+CFLAGS += -I libft
+FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 
+
+date := $(shell date +"%a %b %_d %H:%M")
+
+$(NAME): objs $(OBJS)
+	@make -C libft
+	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(FLAGS_MLX) -o $(NAME)
+	@echo -e "$(CYAN) CUB3D RIDERS GOING AFTER YOU $(WHITE)"
+
+objs:
+	@mkdir -p	objs/srcs/draw objs/srcs/parser objs/srcs/raycasting	\
+
+objs/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all: $(NAME)
+
+clean:
+	@make clean -C libft
+	@rm -rf objs
+
+fclean: clean
+	@make fclean -C libft
+	@rm -f $(NAME)
+
+re: fclean all
+
+norma:
+	@echo 6e6f726d696e65747465207372637320696e6320313e2f6465762f6e756c6c3b206966205b5b20243f202d65712030205d5d3b207468656e206e6f726d696e65747465207372637320696e633b20656c7365206e6f726d696e65747465207372637320696e63207c206772657020274572726f7227203b206669 | xxd -r -p | zsh
+
+commit: fclean
+	@git add .
+	@./input.sh
+	@INPUT_VAR=$$(cat input.txt) && git commit -m "$(date):  $$INPUT_VAR" && rm -f input.txt
+	@git push
+
+.PHONY: all clean fclean re norma commit
