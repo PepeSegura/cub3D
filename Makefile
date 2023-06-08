@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/08 11:26:43 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/08 18:25:28 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,22 @@ WHITE	=	\033[0m
 
 NAME = cub3D
 
-SRCS =											\
-		srcs/main.c								\
-												\
-		srcs/parser/store_file.c				\
-												\
+SRCS =									\
+		srcs/main.c						\
+										\
+		srcs/parser/color.c				\
+		srcs/parser/init_parse.c		\
+		srcs/parser/parse_file.c		\
+		srcs/parser/store_file.c		\
+										\
+		srcs/draw/draw.c				\
+										\
+		srcs/mlx/init_mlx.c				\
+		srcs/mlx/key.c					\
+										\
+		srcs/other/utils.c				\
+										\
+		srcs/raycasting/raycasting.c	\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 
@@ -47,7 +58,8 @@ $(NAME): objs $(OBJS)
 	@echo "$(CYAN) CUB3D RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
-	@mkdir -p	objs/srcs/draw objs/srcs/parser objs/srcs/raycasting	\
+	@mkdir -p	objs/srcs/draw		objs/srcs/mlx			objs/srcs/other	\
+				objs/srcs/parser	objs/srcs/raycasting	
 
 objs/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

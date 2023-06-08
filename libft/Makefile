@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/08 11:28:04 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/08 18:29:49 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRCS_NAME = 						\
 			ft_isalnum.c			\
 			ft_isascii.c			\
 			ft_isprint.c			\
+									\
+			ft_str_is_space.c		\
 									\
 			ft_strlen.c				\
 			ft_strncpy.c			\
