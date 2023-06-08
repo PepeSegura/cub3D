@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/07 19:09:11 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/08 11:26:43 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ date := $(shell date +"%a %b %_d %H:%M")
 $(NAME): objs $(OBJS)
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(FLAGS_MLX) -o $(NAME)
-	@echo -e "$(CYAN) CUB3D RIDERS GOING AFTER YOU $(WHITE)"
+	@echo "$(CYAN) CUB3D RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
 	@mkdir -p	objs/srcs/draw objs/srcs/parser objs/srcs/raycasting	\
