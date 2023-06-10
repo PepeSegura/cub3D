@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 03:15:21 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:08:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,6 @@ typedef struct s_textures {
 	int		suelo;
 }	t_textures;
 
-typedef struct s_cosas {
-	t_args		args;
-	t_file		file;
-	t_textures	texture;
-	int			fd;
-}	t_cosas;
-
 typedef struct s_map {
 	char	*dir;
 	int		width;
@@ -53,6 +46,14 @@ typedef struct s_map {
 	int		max_alt;
 	int		**xyzc;
 }	t_map;
+
+typedef struct s_data {
+	t_args		args;
+	t_file		file;
+	t_textures	texture;
+	int			fd;
+}	t_data;
+
 
 typedef struct s_image {
 	void		*img;
@@ -111,7 +112,7 @@ typedef struct s_mlx {
 	int				x;
 	int				y;
 	t_map			map;
-	t_cosas			c;
+	t_data			c;
 }	t_mlx;
 
 typedef struct s_vtex {

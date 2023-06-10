@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/25 01:03:07 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:08:16 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_is_texture(char *line)
 	return (0);
 }
 
-void	ft_count_things(t_cosas *c)
+void	ft_count_things(t_data *c)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ void	ft_count_things(t_cosas *c)
 		ft_print_error("The map is not at the end.");
 }
 
-void	ft_copy_textures(t_cosas *c, int *i, int *j)
+void	ft_copy_textures(t_data *c, int *i, int *j)
 {
 	c->file.t_count = 0;
 	while (c->file.file[++(*i)] && c->file.t_count < 6)
@@ -63,7 +63,7 @@ void	ft_copy_textures(t_cosas *c, int *i, int *j)
 	}
 }
 
-void	ft_copy_map(t_cosas *c, int *i, int *j)
+void	ft_copy_map(t_data *c, int *i, int *j)
 {
 	while (c->file.file[(*i)] && c->file.file[(*i)][0] != '\0')
 	{
@@ -72,7 +72,7 @@ void	ft_copy_map(t_cosas *c, int *i, int *j)
 	}
 }
 
-void	ft_store_things(t_cosas *c)
+void	ft_store_things(t_data *c)
 {
 	int	i;
 	int	j;

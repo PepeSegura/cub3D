@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/08 18:25:28 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/10 18:04:38 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ GREEN	=	\033[1;32m
 RED		=	\033[0;31m
 CYAN	=	\033[0;36m
 WHITE	=	\033[0m
+CLEAR	=	\r\033[K
 
 NAME = cub3D
 
@@ -53,9 +54,10 @@ FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit
 date := $(shell date +"%a %b %_d %H:%M")
 
 $(NAME): objs $(OBJS)
+	@printf "$(GREEN)Compiling Libft:\n"
 	@make -C libft
 	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(FLAGS_MLX) -o $(NAME)
-	@echo "$(CYAN) CUB3D RIDERS GOING AFTER YOU $(WHITE)"
+	@echo "$(CYAN)CUB3D RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
 	@mkdir -p	objs/srcs/draw		objs/srcs/mlx			objs/srcs/other	\

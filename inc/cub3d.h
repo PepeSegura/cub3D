@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/07 18:25:05 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:08:16 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd);
 void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 
 //Parse
-void	parse_init(t_cosas *c, char **argv);
+void	parse_init(t_data *c, char **argv);
 
 //Open & Store Map
 int		ft_open_file(char *path);
-void	ft_store_file(t_cosas *c);
-void	ft_store_textures(t_cosas *c);
-void	ft_store_map(t_cosas *c);
+void	ft_store_file(t_data *c);
+void	ft_store_textures(t_data *c);
+void	ft_store_map(t_data *c);
 
 //Utils
 void	ft_perror(char *str);
@@ -62,7 +62,7 @@ int		ft_exit(void);
 //Floof_fill
 
 //Read Map
-void	ft_count_things(t_cosas *c);
-void	ft_store_things(t_cosas *c);
+void	ft_count_things(t_data *c);
+void	ft_store_things(t_data *c);
 
 #endif

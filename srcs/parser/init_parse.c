@@ -6,13 +6,15 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/28 18:55:42 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/10 18:21:57 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	aux_set_textures(t_cosas *c, char **aux)
+void	store_file_join(t_data *c);
+
+void	aux_set_textures(t_data *c, char **aux)
 {
 	char	*color;
     char	*endptr;
@@ -24,7 +26,6 @@ void	aux_set_textures(t_cosas *c, char **aux)
 		free(color);
 		c->texture.cielo = strtol(c->texture.ceiling+2, &endptr, 16);
 		printf("CIELO: [%s]\n", c->texture.ceiling);
-    	printf("cielo:[%d]\n", c->texture.cielo);
 	}
 	if (ft_strcmp(aux[0], "F") == 0)
 	{
@@ -33,11 +34,10 @@ void	aux_set_textures(t_cosas *c, char **aux)
 		free(color);
     	c->texture.suelo = strtol(c->texture.floor+2, &endptr, 16);
 		printf("SUELO: [%s]\n", c->texture.floor);
-    	printf("suelo:[%d]\n", c->texture.suelo);
 	}
 }
 
-void	set_textures(t_cosas *c)
+void	set_textures(t_data *c)
 {
 	int		i;
 	char	**aux;
@@ -63,11 +63,12 @@ void	set_textures(t_cosas *c)
 	ft_free_matrix(aux);
 }
 
-void	parse_init(t_cosas *c, char **argv)
+void	parse_init(t_data *c, char **argv)
 {
-	ft_memset(c, 0, sizeof(t_cosas));
+	ft_memset(c, 0, sizeof(t_data));
 	c->args.argv = argv;
-	ft_store_file(c);
+	store_file_join(c);
+	// system("leaks -q cub3D");
 	ft_count_things(c);
 	ft_store_things(c);
 	set_textures(c);
