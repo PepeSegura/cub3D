@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:31:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/28 17:59:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 06:07:54 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd)
 	v.pos[0] = (v.wallx) + ((r->line_height - v.line_h) / 2) * v.pos[1];
 	draw_textures(r, mlx, &v);
 }
+
 void	aux_mlx_pixel_put(t_raycasting *r, t_mlx *mlx, t_vtex *v, void *ptr)
 {
 	v->tex[1] = (int)v->pos[0];
@@ -52,7 +53,7 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v)
 {
 	v->i = -1;
 	while (++v->i < r->draw_start)
-		my_mlx_pixel_put(mlx, r->x, v->i, mlx->c.texture.cielo);
+		my_mlx_pixel_put(mlx, r->x, v->i, mlx->data.texture.ceiling_mlx);
 	while (++v->i < r->draw_end)
 	{
 		if (r->side == 0)
@@ -71,5 +72,5 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v)
 		}
 	}
 	while (++v->i < SCREEN_HEIGHT)
-		my_mlx_pixel_put(mlx, r->x, v->i, mlx->c.texture.suelo);
+		my_mlx_pixel_put(mlx, r->x, v->i, mlx->data.texture.floor_mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/10 15:08:16 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 04:59:29 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_exit(void);
 //Floof_fill
 
 //Read Map
-void	ft_count_things(t_data *c);
+void	store_textures_and_map(t_file *file);
 void	ft_store_things(t_data *c);
 
 #endif

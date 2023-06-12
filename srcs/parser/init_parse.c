@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/10 18:21:57 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 05:39:42 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 
 void	store_file_join(t_data *c);
 
-void	aux_set_textures(t_data *c, char **aux)
+void	get_colors(t_data *c, char **aux)
 {
 	char	*color;
-    char	*endptr;
 
 	if (ft_strcmp(aux[0], "C") == 0)
 	{
 		color = ft_strdup(aux[1]);
-		c->texture.ceiling = convert_color_to_hex(color);
+		c->texture.ceiling_txt = convert_color_to_hex(color);
 		free(color);
-		c->texture.cielo = strtol(c->texture.ceiling+2, &endptr, 16);
-		printf("CIELO: [%s]\n", c->texture.ceiling);
+		c->texture.ceiling_mlx = ft_atol_16(c->texture.ceiling_txt + 2);
+		printf("CEILING: [%s]\n", c->texture.ceiling_txt);
 	}
 	if (ft_strcmp(aux[0], "F") == 0)
 	{
 		color = ft_strdup(aux[1]);
-		c->texture.floor = convert_color_to_hex(color);
+		c->texture.floor_txt = convert_color_to_hex(color);
 		free(color);
-    	c->texture.suelo = strtol(c->texture.floor+2, &endptr, 16);
-		printf("SUELO: [%s]\n", c->texture.floor);
+		c->texture.floor_mlx = ft_atol_16(c->texture.floor_txt + 2);
+		printf("FLOOR: [%s]\n", c->texture.floor_txt);
 	}
 }
 
@@ -57,7 +56,7 @@ void	set_textures(t_data *c)
 		if (ft_strcmp(aux[0], "EA") == 0)
 			c->texture.east = ft_strdup(aux[1]);
 		if (ft_strcmp(aux[0], "C") == 0 || ft_strcmp(aux[0], "F") == 0)
-			aux_set_textures(c, aux);
+			get_colors(c, aux);
 		i++;
 	}
 	ft_free_matrix(aux);
@@ -68,9 +67,6 @@ void	parse_init(t_data *c, char **argv)
 	ft_memset(c, 0, sizeof(t_data));
 	c->args.argv = argv;
 	store_file_join(c);
-	// system("leaks -q cub3D");
-	ft_count_things(c);
-	ft_store_things(c);
+	store_textures_and_map(&c->file);
 	set_textures(c);
 }
-

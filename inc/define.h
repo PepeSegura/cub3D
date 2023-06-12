@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/07 18:24:43 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/11 20:27:09 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define ROT_MS			0.2
 
 //Map char
-# define VALID_CHARS		"01NSEW "
+# define VALID_CHARS		" 01NSEW"
 # define EMPTY_CHAR			'0'
 # define WALL_CHAR			'1'
 # define NORTH_CHAR			'E'

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/10 18:22:23 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 05:40:08 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	store_file_join(t_data *c)
 	line = "line";
 	clean = "clean";
 	c->file.file = ft_calloc(sizeof(char *), 1);
-	fd  = open(c->args.argv[1], O_RDONLY);
+	fd = open(c->args.argv[1], O_RDONLY);
 	if (fd == -1)
 		ft_perror(c->args.argv[1]);
 	while (line)
@@ -34,4 +34,3 @@ void	store_file_join(t_data *c)
 		c->file.file = ft_add_row_matrix(c->file.file, clean);
 	}
 }
-

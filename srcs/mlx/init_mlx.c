@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:09:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/04/05 19:01:12 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 06:07:54 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	imgs_init(t_mlx *mlx)
 {
 	mlx->tex_north.img = mlx_xpm_file_to_image(mlx->mlx,
-			mlx->c.texture.north, &mlx->x, &mlx->y);
+			mlx->data.texture.north, &mlx->x, &mlx->y);
 	mlx->tex_south.img = mlx_xpm_file_to_image(mlx->mlx,
-			mlx->c.texture.south, &mlx->x, &mlx->y);
+			mlx->data.texture.south, &mlx->x, &mlx->y);
 	mlx->tex_east.img = mlx_xpm_file_to_image(mlx->mlx,
-			mlx->c.texture.east, &mlx->x, &mlx->y);
+			mlx->data.texture.east, &mlx->x, &mlx->y);
 	mlx->tex_west.img = mlx_xpm_file_to_image(mlx->mlx,
-			mlx->c.texture.west, &mlx->x, &mlx->y);
+			mlx->data.texture.west, &mlx->x, &mlx->y);
 	mlx->tex_north.addr = mlx_get_data_addr(mlx->tex_north.img,
 			&mlx->tex_north.bits_per_pixel, &mlx->tex_north.line_length,
 			&mlx->tex_north.endian);

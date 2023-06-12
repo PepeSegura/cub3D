@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/10 18:04:38 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/12 04:10:24 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ CC = clang
 
 # MAKEFLAGS += -j6
 
-CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
 FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 

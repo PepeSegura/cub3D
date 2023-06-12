@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:44:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/08 18:28:57 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/12 05:34:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			ft_tolower(int c);
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
+int			ft_isxdigit(int c);
 int			ft_isalnum(int c);
 int			ft_isascii(int c);
 int			ft_isprint(int c);
@@ -75,6 +76,7 @@ void		*ft_calloc(size_t count, size_t size);
 
 int			ft_atoi(const char *str);
 long		ft_atoi_long(const char *str);
+long		ft_atol_16(const char *str);
 char		*ft_itoa(int n);
 
 char		*ft_substr(char const *s, unsigned int start, size_t len);

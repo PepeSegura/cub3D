@@ -1,10 +1,17 @@
-TODO: revisar apertura de imagenes
+
+
+
+
 NO ./pics/wall_north.xpm
 SO ./pics/wall_south.xpm
-WE ./pics/wall_west.xpm
 EA ./pics/wall_east.xpm
+WE ./pics/wall_west.xpm
 C 76,137,166
 F 48,44,52
+
+
+
+
 
         1111111111111111111111111
         1000000000110000000000001

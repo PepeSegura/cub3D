@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:53:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/10 15:23:20 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/11 19:59:18 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_perror(char *str)
 
 void	ft_print_error(char *str)
 {
-	printf("Error\n%s\n", str);
+	printf("Error\n\t%s\n", str);
 	exit(0);
 }
 
