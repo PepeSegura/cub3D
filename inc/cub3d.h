@@ -6,26 +6,20 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/12 06:29:05 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:13:22 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-//Header files
-# include "cub3d.h"
+/*__Header_files__*/
 # include "libs.h"
-# include "define.h"
+# include "defines.h"
 # include "structures.h"
 
-//Libft
+/*__Libft__*/
 # include "../libft/inc/libft.h"
-
-# define MAP_WIDTH 24
-# define MAP_HEIGHT 24
-# define SCREEN_WIDTH 1280
-# define SCREEN_HEIGHT 720
 
 extern int	g_c_map[MAP_WIDTH][MAP_HEIGHT];
 
@@ -37,32 +31,33 @@ void	raycasting(t_mlx *mlx);
 void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd);
 void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 
-//Parse
+/*__Parse__*/
 void	parse_init(t_data *c, char **argv);
 
-//Open & Store Map
+/*_Open_&_Store_Map__*/
 int		ft_open_file(char *path);
 void	ft_store_file(t_data *c);
 void	ft_store_textures(t_data *c);
 void	ft_store_map(t_data *c);
 
-//Utils
+/*_Utils_*/
 void	ft_perror(char *str);
 void	ft_print_error(char *str);
 int		ft_str_is_space(char *str);
 
-//Color
+/*_Colors_*/
 char	*convert_color_to_hex(char *str);
 
-//Input & movement
+/*_Input_&_movement_*/
 int		ft_exit(void);
 
-//Draw
+/*__Draw__*/
 
-//Floof_fill
+/*__Floof_fill__*/
 
-//Read Map
+/*__Read_Map__*/
 void	store_textures_and_map(t_file *file);
-void	ft_store_things(t_data *c);
-
+int		ft_is_texture(char *line);
+int		check_line(char *str);
+int		check_isles(t_file *file, int i);
 #endif

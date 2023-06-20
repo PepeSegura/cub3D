@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/12 04:10:24 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/19 19:02:18 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,22 +21,23 @@ CLEAR	=	\r\033[K
 
 NAME = cub3D
 
-SRCS =									\
-		srcs/main.c						\
-										\
-		srcs/parser/color.c				\
-		srcs/parser/init_parse.c		\
-		srcs/parser/parse_file.c		\
-		srcs/parser/store_file.c		\
-										\
-		srcs/draw/draw.c				\
-										\
-		srcs/mlx/init_mlx.c				\
-		srcs/mlx/key.c					\
-										\
-		srcs/other/utils.c				\
-										\
-		srcs/raycasting/raycasting.c	\
+SRCS =												\
+		srcs/main.c									\
+													\
+		srcs/parser/color.c							\
+		srcs/parser/init_parse.c					\
+		srcs/parser/store_textures_and_map.c		\
+		srcs/parser/store_textures_and_map_utils.c	\
+		srcs/parser/store_file.c					\
+													\
+		srcs/draw/draw.c							\
+													\
+		srcs/mlx/init_mlx.c							\
+		srcs/mlx/key.c								\
+													\
+		srcs/other/utils.c							\
+													\
+		srcs/raycasting/raycasting.c				\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 
@@ -46,7 +47,7 @@ CC = clang
 
 # MAKEFLAGS += -j6
 
-CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
 FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/12 05:39:42 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:13:32 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	set_textures(t_data *c)
 			c->texture.east = ft_strdup(aux[1]);
 		if (ft_strcmp(aux[0], "C") == 0 || ft_strcmp(aux[0], "F") == 0)
 			get_colors(c, aux);
+		ft_free_matrix(aux);
 		i++;
 	}
-	ft_free_matrix(aux);
 }
 
 void	parse_init(t_data *c, char **argv)

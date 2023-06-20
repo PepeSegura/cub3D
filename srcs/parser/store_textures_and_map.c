@@ -1,44 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   store_textures_and_map.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/12 05:41:49 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:00:09 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	ft_is_texture(char *line)
-{
-	int			i;
-	const char	*textures[] = {"NO", "SO", "WE", "EA", "F", "C", NULL};
-
-	if (!line)
-		return (0);
-	i = -1;
-	while (textures[++i])
-		if (ft_strnstr(line, textures[i], ft_strlen(line)) != NULL)
-			return (1);
-	return (0);
-}
-
-int	check_line(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!ft_strchr(VALID_CHARS, str[i]))
-			ft_print_error("Map error: Invalid char on the map.");
-		i++;
-	}
-	return (1);
-}
 
 int	store_textures(t_file *file)
 {
@@ -60,24 +32,28 @@ int	store_textures(t_file *file)
 			continue ;
 		}
 		if (ft_is_texture(file->file[i]) == 0)
-			ft_print_error("Invalid lines before map.");
+			ft_print_error(INVALID_LINES);
 		break ;
 	}
 	if (file->t_count != 6)
-		ft_print_error("Missing textures in the file.");
+		ft_print_error(MISSING_TEXTURES);
 	return (i);
 }
 
-void	store_map(t_file *file, int i)
+int	store_map(t_file *file, int i)
 {
-	file->m_count = 0;
+	int	flag;
+
+	flag = 0;
 	while (file->file[i])
 	{
 		if (ft_str_is_space(file->file[i]))
 		{
-			ft_free_matrix(file->map);
-			file->map = ft_calloc(1, sizeof(char *));
-			file->m_count = 0;
+			if (flag == 1 && check_isles(file, i) != 1)
+			{
+				ft_free_matrix(file->map);
+				file->map = ft_calloc(1, sizeof(char *));
+			}
 			i++;
 			continue ;
 		}
@@ -86,11 +62,11 @@ void	store_map(t_file *file, int i)
 			file->map = ft_add_row_matrix(file->map, file->file[i]);
 			file->m_count++;
 			i++;
+			flag = 1;
 			continue ;
 		}
 	}
-	if (file->m_count == 0)
-		ft_print_error("The map is not at the end.");
+	return (flag);
 }
 
 void	store_textures_and_map(t_file *file)
@@ -102,5 +78,6 @@ void	store_textures_and_map(t_file *file)
 	if (file->map == NULL || file->textures == NULL)
 		ft_print_error("Malloc KO");
 	i = store_textures(file);
-	store_map(file, i);
+	if (store_map(file, i) == 0)
+		ft_print_error(MISSING_MAP);
 }
