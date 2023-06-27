@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/21 15:02:43 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/27 23:51:54 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,25 +33,25 @@ SRCS =												\
 													\
 		srcs/draw/draw.c							\
 													\
-		srcs/mlx/init_mlx.c							\
-		srcs/mlx/key.c								\
 													\
 		srcs/other/utils.c							\
 													\
-		srcs/raycasting/raycasting.c				\
+		# srcs/raycasting/raycasting.c				\
+		# srcs/mlx/key.c								\
+		# srcs/mlx/init_mlx.c							\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 
 LIB = libft/libft.a
 
-CC = clang
+CC = gcc
 
 # MAKEFLAGS += -j6
 
 CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
-FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 
+FLAGS_MLX = # -lmlx -framework OpenGL -framework AppKit 
 
 date := $(shell date +"%a %b %_d %H:%M")
 

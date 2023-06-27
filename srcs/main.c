@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/06/21 15:09:40 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/27 23:52:10 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int	g_c_map[MAP_WIDTH][MAP_HEIGHT] = {
 	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1}, 
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
-void	fleaks(void)
-{
-	system("leaks -q cub3D");
-}
+// void	fleaks(void)
+// {
+// 	system("leaks -q cub3D");
+// }
 
 int	main(int argc, char **argv)
 {
-	atexit(&fleaks);
+	// atexit(&fleaks);
 	t_mlx	mlx;
 	// t_data	data;
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 		ft_print_error("Introduce un mapa!");
 	parse_init(&mlx.data, argv);
 	parser_map(&mlx.data.file);
-	cube_init(&mlx);
+	// cube_init(&mlx);
 	printf("NORTH: [%s]\n", mlx.data.texture.north);
 	printf("SOUTH: [%s]\n", mlx.data.texture.south);
 	printf("WEST: [%s]\n", mlx.data.texture.west);
