@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/19 19:13:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:08:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 
 /*__Parse__*/
 void	parse_init(t_data *c, char **argv);
+void	parser_map(t_file *file);
 
 /*_Open_&_Store_Map__*/
 int		ft_open_file(char *path);

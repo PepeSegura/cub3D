@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/06/19 19:08:30 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:09:40 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,24 @@ void	fleaks(void)
 
 int	main(int argc, char **argv)
 {
+	atexit(&fleaks);
 	t_mlx	mlx;
 	// t_data	data;
 
 	if (argc != 2)
 		ft_print_error("Introduce un mapa!");
 	parse_init(&mlx.data, argv);
+	parser_map(&mlx.data.file);
 	cube_init(&mlx);
 	printf("NORTH: [%s]\n", mlx.data.texture.north);
 	printf("SOUTH: [%s]\n", mlx.data.texture.south);
 	printf("WEST: [%s]\n", mlx.data.texture.west);
 	printf("EAST: [%s]\n", mlx.data.texture.east);
-	ft_print_matrix(mlx.data.file.map, "map");
-	raycasting(&mlx);
-	mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
-	mlx_hook(mlx.win, 17, 0, hook_exit, &mlx);
-	mlx_loop(mlx.mlx);
-	atexit(&fleaks);
+	// ft_print_matrix(mlx.data.file.map, "map");
+	// raycasting(&mlx);
+	// mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
+	// mlx_hook(mlx.win, 17, 0, hook_exit, &mlx);
+	// mlx_loop(mlx.mlx);
 	return (exit(0), 0);
 }
 

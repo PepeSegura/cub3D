@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/19 19:02:18 by psegura-         ###   ########.fr        #
+#    Updated: 2023/06/21 15:02:43 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS =												\
 		srcs/parser/store_textures_and_map.c		\
 		srcs/parser/store_textures_and_map_utils.c	\
 		srcs/parser/store_file.c					\
+		srcs/parser/parser_map.c					\
 													\
 		srcs/draw/draw.c							\
 													\
