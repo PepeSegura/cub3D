@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/12 05:40:08 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/06/29 09:13:25 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ void	store_file_join(t_data *c)
 		free(line);
 		c->file.file = ft_add_row_matrix(c->file.file, clean);
 	}
+	close(fd);
 }
