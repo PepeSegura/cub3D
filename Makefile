@@ -6,7 +6,7 @@
 #    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/27 23:51:54 by pepe             ###   ########.fr        #
+#    Updated: 2023/06/30 16:25:41 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ CC = gcc
 
 # MAKEFLAGS += -j6
 
-CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
 FLAGS_MLX = # -lmlx -framework OpenGL -framework AppKit 
