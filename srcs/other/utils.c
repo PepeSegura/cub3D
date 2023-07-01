@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:53:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/27 23:50:14 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/01 16:00:40 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_perror(char *str)
 {
 	perror(str);
-	exit(0);
+	exit(1);
 }
 
 void	ft_print_error(char *str)
 {
 	printf("Error\n\t%s\n", str);
-	exit(0);
+	exit(1);
 }
 
 // int	hook_exit(t_mlx *mlx)
