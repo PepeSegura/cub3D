@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:44:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/12 05:34:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/01 18:13:59 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			ft_str_is_space(char *str);
 int			ft_strlen(const char *str);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
+char		*ft_strcpy(char *dst, const char *src);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 char		*ft_strncpy(char *dst, const char *src, size_t len);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:18:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/27 23:20:13 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/01 19:24:31 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Malloc, Free, Exit
 # include <stdlib.h>
 
 # include <math.h>
-// # include <mlx.h>
+# include <mlx.h>
 # include <limits.h>
 
 #endif

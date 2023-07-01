@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/30 20:27:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/01 19:17:36 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 
 /*__Parse__*/
 void	parse_init(t_data *c, char **argv);
-void	parser_map(t_file *file);
+// void	parser_map(t_file *file);
+void	parser_map(t_mlx *mlx);
+
+/*__Check_Borders*/
+# define VALID_BORDER " 1"
+# define INVALID_BORDER "Border not closed."
+
+int		valid_top_row(char **matrix);
+int		valid_bottom_row(char **matrix);
+void	check_sides(char **map);
+int		check_left_column(char *str);
+int		check_right_column(char *str);
 void	fill_with_spaces(char **matrix);
 
 /*_Open_&_Store_Map__*/

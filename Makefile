@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/01 16:01:08 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/01 19:29:52 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS =												\
 		srcs/parser/store_textures_and_map_utils.c	\
 		srcs/parser/store_file.c					\
 		srcs/parser/parser_map.c					\
+		srcs/parser/check_borders.c					\
 		srcs/parser/fill_map_with_spaces.c			\
 													\
 		srcs/draw/draw.c							\
@@ -37,22 +38,22 @@ SRCS =												\
 													\
 		srcs/other/utils.c							\
 													\
-		# srcs/raycasting/raycasting.c				\
-		# srcs/mlx/key.c								\
-		# srcs/mlx/init_mlx.c							\
+		srcs/raycasting/raycasting.c				\
+		srcs/mlx/key.c								\
+		srcs/mlx/init_mlx.c							\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 
 LIB = libft/libft.a
 
-CC = gcc
+CC = cc
 
 # MAKEFLAGS += -j6
 
 CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
-FLAGS_MLX = # -lmlx -framework OpenGL -framework AppKit 
+FLAGS_MLX =  -lmlx -framework OpenGL -framework AppKit 
 
 date := $(shell date +"%a %b %_d %H:%M")
 

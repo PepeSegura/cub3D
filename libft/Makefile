@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/06/09 14:52:53 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/01 18:16:42 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,7 @@ SRCS = 								\
 	srcs/ft_str_is_space.c			\
 									\
 	srcs/ft_strlen.c				\
-	srcs/ft_strncpy.c				\
-	srcs/ft_strlcpy.c				\
+	srcs/ft_strcpy.c				\
 	srcs/ft_strlcat.c				\
 	srcs/ft_strchr.c				\
 	srcs/ft_strrchr.c				\
