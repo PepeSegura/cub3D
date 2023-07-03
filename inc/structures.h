@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/21 15:01:52 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/03 22:37:28 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ typedef struct s_data {
 	t_textures	texture;
 	int			fd;
 }	t_data;
+
+typedef struct s_player {
+	int		x;
+	int		y;
+	int		facing;
+}	t_player;
 
 typedef struct s_image {
 	void		*img;
@@ -109,6 +115,7 @@ typedef struct s_mlx {
 	t_image			tex_west;
 	int				x;
 	int				y;
+	t_player		player;
 	t_map			map;
 	t_data			data;
 }	t_mlx;

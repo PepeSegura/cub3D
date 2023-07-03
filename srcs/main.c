@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/01 19:28:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/03 22:30:46 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,16 @@ int	main(int argc, char **argv)
 		ft_print_error("Introduce un mapa!");
 	parse_init(&mlx.data, argv);
 	parser_map(&mlx);
-	cube_init(&mlx);
+	// cube_init(&mlx);
 	printf("NORTH: [%s]\n", mlx.data.texture.north);
 	printf("SOUTH: [%s]\n", mlx.data.texture.south);
 	printf("WEST: [%s]\n", mlx.data.texture.west);
 	printf("EAST: [%s]\n", mlx.data.texture.east);
 	// ft_print_matrix(mlx.data.file.map, "map");
-	raycasting(&mlx);
-	mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
+	// raycasting(&mlx);
+	// mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
 	// mlx_hook(mlx.win, 17, 0, hook_exit, &mlx);
-	mlx_loop(mlx.mlx);
+	// mlx_loop(mlx.mlx);
 	return (exit(0), 0);
 }
 

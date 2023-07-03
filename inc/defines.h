@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/06/19 19:14:00 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/03 22:21:43 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define VALID_CHARS		" 01NSEW"
 # define EMPTY_CHAR			'0'
 # define WALL_CHAR			'1'
-# define NORTH_CHAR			'E'
+# define NORTH_CHAR			'N'
 # define SOUTH_CHAR			'S'
 # define EAST_CHAR			'E'
 # define WEST_CHAR			'W'

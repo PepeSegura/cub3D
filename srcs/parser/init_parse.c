@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/01 16:00:46 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:47:05 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	set_textures(t_data *c)
 	{
 		aux = ft_split(c->file.textures[i], ' ');
 		if (!aux[1])
-			ft_print_error("There is no textures in the map!");
+			ft_print_error(MISSING_TEXTURES);
 		if (ft_strcmp(aux[0], "NO") == 0)
 			c->texture.north = ft_strdup(aux[1]);
 		if (ft_strcmp(aux[0], "SO") == 0)

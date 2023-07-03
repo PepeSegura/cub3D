@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/01 19:29:52 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/03 23:27:45 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,13 @@ SRCS =												\
 		srcs/mlx/key.c								\
 		srcs/mlx/init_mlx.c							\
 
+INC =												\
+		inc/cub3d.h									\
+		inc/defines.h								\
+		inc/errors.h								\
+		inc/libs.h									\
+		inc/structures.h							\
+		
 OBJS = $(SRCS:%.c=objs/%.o)
 
 LIB = libft/libft.a
@@ -57,10 +64,10 @@ FLAGS_MLX =  -lmlx -framework OpenGL -framework AppKit
 
 date := $(shell date +"%a %b %_d %H:%M")
 
-$(NAME): objs $(OBJS)
+$(NAME): $(INC) objs $(OBJS)
 	@printf "$(GREEN)Compiling Libft:\n"
 	@make -C libft
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(FLAGS_MLX) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIB) $(FLAGS_MLX) -o $(NAME)
 	@echo "$(CYAN)CUB3D RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:

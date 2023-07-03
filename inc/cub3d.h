@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/01 19:17:36 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/03 22:14:52 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	parser_map(t_mlx *mlx);
 
 /*__Check_Borders*/
 # define VALID_BORDER " 1"
-# define INVALID_BORDER "Border not closed."
 
 int		valid_top_row(char **matrix);
 int		valid_bottom_row(char **matrix);
