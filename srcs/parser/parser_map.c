@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:02:58 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/03 22:59:56 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/04 00:12:33 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	locate_player(t_mlx *mlx)
 {
 	char **map = NULL;
 	int i = 0;
+	int	p_count = 0;
 
 	map = mlx->data.file.map;
 	while (map[i])
@@ -84,15 +85,17 @@ void	locate_player(t_mlx *mlx)
 				mlx->player.x = i;
 				mlx->player.y = j;
 				mlx->player.facing = map[i][j];
+				p_count++;
 				printf("Player found on cords[%d][%d]\nLooking at: [%c]\n", i, j, map[i][j]);
 			}
 			j++;
 		}
 		i++;
 	}
+	if (p_count > 1)
+		ft_print_error("Too many players found.");
 }
 
-// void	parser_map(t_file *file)
 void	parser_map(t_mlx *mlx)
 {
 	char **map = NULL;
