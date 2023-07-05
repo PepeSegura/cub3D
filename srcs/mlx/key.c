@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:39:54 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/01 16:00:36 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/05 23:27:41 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	move_player_sides(int keycode, t_mlx *mlx)
 {
 	if (keycode == A)
 	{
-		if (g_c_map[(int)(mlx->pos_x - mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x -= mlx->dir_y * MS;
-		if (g_c_map[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_x * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_x * MS)] == 0)
 			mlx->pos_y += mlx->dir_x * MS;
 	}
 	if (keycode == D)
 	{
-		if (g_c_map[(int)(mlx->pos_x + mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x += mlx->dir_y * MS;
-		if (g_c_map[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_x * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_x * MS)] == 0)
 			mlx->pos_y -= mlx->dir_x * MS;
 	}
 }
@@ -58,16 +58,16 @@ void	move_player(int keycode, t_mlx *mlx)
 		move_player_sides(keycode, mlx);
 	if (keycode == W)
 	{
-		if (g_c_map[(int)(mlx->pos_x + mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x += mlx->dir_x * MS;
-		if (g_c_map[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_y * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_y * MS)] == 0)
 			mlx->pos_y += mlx->dir_y * MS;
 	}
 	if (keycode == S)
 	{
-		if (g_c_map[(int)(mlx->pos_x - mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x -= mlx->dir_x * MS;
-		if (g_c_map[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_y * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_y * MS)] == 0)
 			mlx->pos_y -= mlx->dir_y * MS;
 	}
 }
