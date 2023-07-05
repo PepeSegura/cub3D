@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:39:54 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/05 23:27:41 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/06 00:09:47 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,20 @@ void	move_player_sides(int keycode, t_mlx *mlx)
 {
 	if (keycode == A)
 	{
-		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_y
+				* MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x -= mlx->dir_y * MS;
-		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_x * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_x
+				* MS)] == 0)
 			mlx->pos_y += mlx->dir_x * MS;
 	}
 	if (keycode == D)
 	{
-		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_y * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_y
+				* MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x += mlx->dir_y * MS;
-		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_x * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_x
+				* MS)] == 0)
 			mlx->pos_y -= mlx->dir_x * MS;
 	}
 }
@@ -58,35 +62,61 @@ void	move_player(int keycode, t_mlx *mlx)
 		move_player_sides(keycode, mlx);
 	if (keycode == W)
 	{
-		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x + mlx->dir_x
+				* MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x += mlx->dir_x * MS;
-		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_y * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y + mlx->dir_y
+				* MS)] == 0)
 			mlx->pos_y += mlx->dir_y * MS;
 	}
 	if (keycode == S)
 	{
-		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_x * MS)][(int)mlx->pos_y] == 0)
+		if (mlx->map.xyzc[(int)(mlx->pos_x - mlx->dir_x
+				* MS)][(int)mlx->pos_y] == 0)
 			mlx->pos_x -= mlx->dir_x * MS;
-		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_y * MS)] == 0)
+		if (mlx->map.xyzc[(int)mlx->pos_x][(int)(mlx->pos_y - mlx->dir_y
+				* MS)] == 0)
 			mlx->pos_y -= mlx->dir_y * MS;
 	}
 }
 
+int	keycode_is_in(const int *arr, int size, int number)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (arr[i] == number)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_input(int keycode, t_mlx *mlx)
 {
-	double	old_dir_x;
-	double	old_plan_x;
+	const int	inputs[6] = {W, A, S, D, LEFT, RIGHT};
+	const int	movement[4] = {W, A, S, D};
+	const int	camera[2] = {LEFT, RIGHT};
+	double		old_dir_x;
+	double		old_plan_x;
 
 	if (keycode == ESC)
 		exit(1);
+	if (!keycode_is_in(inputs, 6, keycode))
+		return (0);
 	old_dir_x = 0;
 	old_plan_x = 0;
-	if (keycode == LEFT || keycode == RIGHT)
+	// if (keycode == LEFT || keycode == RIGHT)
+	if (keycode_is_in(camera, 2, keycode))
 		move_cam(keycode, mlx, old_dir_x, old_plan_x);
-	if (keycode == A || keycode == W || keycode == S || keycode == D)
+	// if (keycode == A || keycode == W || keycode == S || keycode == D)
+	if (keycode_is_in(movement, 4, keycode))
 		move_player(keycode, mlx);
-	if (keycode == A || keycode == W || keycode == S || keycode == D
-		|| keycode == LEFT || keycode == RIGHT)
+	// if (keycode == A || keycode == W || keycode == S || keycode == D
+	// 	|| keycode == LEFT || keycode == RIGHT)
+	if (keycode_is_in(inputs, 6, keycode))
 	{
 		mlx_destroy_image(mlx->mlx, mlx->img);
 		mlx->img = mlx_new_image(mlx->mlx, mlx->win_w, mlx->win_h);
@@ -97,11 +127,11 @@ int	ft_input(int keycode, t_mlx *mlx)
 	return (0);
 }
 
-	// if (keycode == A || keycode == W || keycode == S || keycode == D
-	// 		|| keycode == LEFT || keycode == RIGHT)
-	// {
-	// 	printf("pos_x[%f] poxY[%f] dir_x[%f] dir_y[%f]",
-	// 		mlx->pos_x, mlx->pos_y, mlx->dir_x, mlx->dir_y);
-	// 	printf("theta[%f] plan_x[%f] plane_y[%f]\n",
-	// 		mlx->teta, mlx->plan_x, mlx->plane_y);
-	// }
+// if (keycode == A || keycode == W || keycode == S || keycode == D
+// 		|| keycode == LEFT || keycode == RIGHT)
+// {
+// 	printf("pos_x[%f] poxY[%f] dir_x[%f] dir_y[%f]",
+// 		mlx->pos_x, mlx->pos_y, mlx->dir_x, mlx->dir_y);
+// 	printf("theta[%f] plan_x[%f] plane_y[%f]\n",
+// 		mlx->teta, mlx->plan_x, mlx->plane_y);
+// }

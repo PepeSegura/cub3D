@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/03 22:21:43 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/05 23:42:31 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define MS				1
 # define ROT_MS			0.2
 
-# define MAP_WIDTH		24
-# define MAP_HEIGHT		24
+// # define MAP_WIDTH		24
+// # define MAP_HEIGHT		24
 # define SCREEN_WIDTH	1280
 # define SCREEN_HEIGHT	720
 

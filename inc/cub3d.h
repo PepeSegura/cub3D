@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/03 22:14:52 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/05 23:42:20 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*__Libft__*/
 # include "../libft/inc/libft.h"
 
-extern int	g_c_map[MAP_WIDTH][MAP_HEIGHT];
+// extern int	g_c_map[MAP_WIDTH][MAP_HEIGHT];
 
 int		ft_input(int keycode, t_mlx *mlx);
 int		hook_exit(t_mlx *mlx);
