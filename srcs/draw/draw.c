@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:31:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/01 16:00:26 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 13:45:31 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v)
 		if (r->side == 0)
 		{
 			if (r->ray_dir_x < 0)
-				aux_mlx_pixel_put(r, mlx, v, mlx->tex_north.addr);
+				aux_mlx_pixel_put(r, mlx, v, mlx->tex[NORTH].addr);
 			else
-				aux_mlx_pixel_put(r, mlx, v, mlx->tex_south.addr);
+				aux_mlx_pixel_put(r, mlx, v, mlx->tex[SOUTH].addr);
 		}
 		else
 		{
 			if (r->ray_dir_y < 0)
-				aux_mlx_pixel_put(r, mlx, v, mlx->tex_west.addr);
+				aux_mlx_pixel_put(r, mlx, v, mlx->tex[WEST].addr);
 			else
-				aux_mlx_pixel_put(r, mlx, v, mlx->tex_east.addr);
+				aux_mlx_pixel_put(r, mlx, v, mlx->tex[EAST].addr);
 		}
 	}
 	while (++v->i < SCREEN_HEIGHT)

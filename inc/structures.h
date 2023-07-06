@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/05 23:39:48 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/06 14:16:12 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ typedef struct s_textures {
 
 typedef struct s_map {
 	char	*dir;
-	int		width;
-	int		height;
-	int		max_alt;
 	int		**xyzc;
 }	t_map;
 
@@ -88,6 +85,11 @@ typedef struct s_raycasting {
 	double	perp_wall_dist;
 }	t_raycasting;
 
+# define NORTH	0
+# define SOUTH	1
+# define EAST	2
+# define WEST	3
+
 typedef struct s_mlx {
 	void			*mlx;
 	void			*win;
@@ -96,23 +98,15 @@ typedef struct s_mlx {
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
-	int				multiplicator;
-	int				multi_z;
-	int				win_w;
-	int				win_h;
 	int				size_x;
 	int				size_y;
 	double			pos_x;
 	double			pos_y;
 	double			dir_x;
 	double			dir_y;
-	double			teta;
 	double			plan_x;
 	double			plane_y;
-	t_image			tex_north;
-	t_image			tex_south;
-	t_image			tex_east;
-	t_image			tex_west;
+	t_image			tex[4];
 	int				x;
 	int				y;
 	t_player		player;

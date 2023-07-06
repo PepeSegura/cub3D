@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:53:48 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/05 23:40:36 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/06 11:06:52 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	ft_print_error(char *str)
 	exit(1);
 }
 
-// int	hook_exit(t_mlx *mlx)
-// {
-// 	mlx_destroy_window(mlx->mlx, mlx->win);
-// 	exit(EXIT_SUCCESS);
-// 	return (0);
-// }
+int	hook_exit(t_mlx *mlx)
+{
+	mlx_destroy_window(mlx->mlx, mlx->win);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
 
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color)
 {

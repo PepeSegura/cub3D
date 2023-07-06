@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:02:58 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/04 00:12:33 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:24:33 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,33 @@ int	check_adjacent_spaces(char **matrix)
 	return (0);
 }
 
-void	str_replace(char *str, char in, char out)
+void	locate_player(t_mlx *mlx)
 {
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		if (str[i] == in)
-			str[i] = out;
-}
-
-void	replace_space_to_wall(char **map)
-{
-	int	i;
+	int		i;
+	int		p_count;
+	int		j;
 
 	i = 0;
-	while (map[i])
-		str_replace(map[i++], ' ', '1');
+	p_count = 0;
+	while (mlx->data.file.map[i])
+	{
+		j = 0;
+		while (mlx->data.file.map[i][j])
+		{
+			if (ft_strchr("NSEW", mlx->data.file.map[i][j]))
+			{
+				mlx->player.x = i;
+				mlx->player.y = j;
+				mlx->player.facing = mlx->data.file.map[i][j];
+				p_count++;
+				mlx->data.file.map[i][j] = '0';
+			}
+			j++;
+		}
+		i++;
+	}
+	if (p_count > 1)
+		ft_print_error("Too many players found.");
 }
 
 void	check_borders_and_voids(char **map)
@@ -68,44 +78,14 @@ void	check_borders_and_voids(char **map)
 	check_sides(map);
 }
 
-void	locate_player(t_mlx *mlx)
-{
-	char **map = NULL;
-	int i = 0;
-	int	p_count = 0;
-
-	map = mlx->data.file.map;
-	while (map[i])
-	{
-		int j = 0;
-		while (map[i][j])
-		{
-			if (ft_strchr("NSEW", map[i][j]))
-			{
-				mlx->player.x = i;
-				mlx->player.y = j;
-				mlx->player.facing = map[i][j];
-				p_count++;
-				printf("Player found on cords[%d][%d]\nLooking at: [%c]\n", i, j, map[i][j]);
-			}
-			j++;
-		}
-		i++;
-	}
-	if (p_count > 1)
-		ft_print_error("Too many players found.");
-}
-
 void	parser_map(t_mlx *mlx)
 {
-	char **map = NULL;
+	char	**map;
 
 	map = mlx->data.file.map;
 	fill_with_spaces(map);
-	// ft_print_matrix(map, "map");
 	check_borders_and_voids(map);
 	replace_space_to_wall(map);
-	ft_print_matrix(map, "FILLED");
-	//TODO: LOCATE AND SET PLAYER, PROBABLY IS BETTER TO DO IT ON INIT_MLX.
 	locate_player(mlx);
+	map_to_int(mlx);
 }

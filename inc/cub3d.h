@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/05 23:42:20 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/06 14:25:25 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 /*__Libft__*/
 # include "../libft/inc/libft.h"
 
-// extern int	g_c_map[MAP_WIDTH][MAP_HEIGHT];
-
 int		ft_input(int keycode, t_mlx *mlx);
 int		hook_exit(t_mlx *mlx);
 void	cube_init(t_mlx *mlx);
@@ -33,9 +31,11 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 
 /*__Parse__*/
 void	parse_init(t_data *c, char **argv);
-// void	parser_map(t_file *file);
 void	parser_map(t_mlx *mlx);
 
+/*__Parser_map_aux__*/
+void	str_replace(char *str, char in, char out);
+void	replace_space_to_wall(char **map);
 /*__Check_Borders*/
 # define VALID_BORDER " 1"
 
@@ -45,6 +45,9 @@ void	check_sides(char **map);
 int		check_left_column(char *str);
 int		check_right_column(char *str);
 void	fill_with_spaces(char **matrix);
+
+/*__Convert_map_to_int_array__*/
+void	map_to_int(t_mlx *mlx);
 
 /*_Open_&_Store_Map__*/
 int		ft_open_file(char *path);
@@ -62,10 +65,6 @@ char	*convert_color_to_hex(char *str);
 
 /*_Input_&_movement_*/
 int		ft_exit(void);
-
-/*__Draw__*/
-
-/*__Floof_fill__*/
 
 /*__Read_Map__*/
 void	store_textures_and_map(t_file *file);

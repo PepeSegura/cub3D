@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/03 20:47:05 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 14:26:15 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	get_colors(t_data *c, char **aux)
 		c->texture.ceiling_txt = convert_color_to_hex(color);
 		free(color);
 		c->texture.ceiling_mlx = ft_atol_16(c->texture.ceiling_txt + 2);
-		printf("CEILING: [%s]\n", c->texture.ceiling_txt);
 	}
 	if (ft_strcmp(aux[0], "F") == 0)
 	{
@@ -32,7 +31,6 @@ void	get_colors(t_data *c, char **aux)
 		c->texture.floor_txt = convert_color_to_hex(color);
 		free(color);
 		c->texture.floor_mlx = ft_atol_16(c->texture.floor_txt + 2);
-		printf("FLOOR: [%s]\n", c->texture.floor_txt);
 	}
 }
 

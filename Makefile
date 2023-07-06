@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/04 00:05:22 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/06 14:27:52 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SRCS =												\
 		srcs/parser/store_textures_and_map.c		\
 		srcs/parser/store_textures_and_map_utils.c	\
 		srcs/parser/store_file.c					\
+		srcs/parser/map_to_int.c					\
 		srcs/parser/parser_map.c					\
+		srcs/parser/parser_map_aux.c				\
 		srcs/parser/check_borders.c					\
 		srcs/parser/fill_map_with_spaces.c			\
 													\
@@ -57,7 +59,7 @@ CC = cc
 
 # MAKEFLAGS += -j6
 
-CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
 FLAGS_MLX =  -lmlx -framework OpenGL -framework AppKit 

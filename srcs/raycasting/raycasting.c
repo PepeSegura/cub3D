@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:38:21 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/01 16:01:01 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 12:12:22 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_walls(t_raycasting *r, t_mlx *mlx)
 	}
 }
 
-void	trow_rays(t_raycasting *r)
+void	trow_rays(t_raycasting *r, int **map)
 {
 	while (r->hit == 0)
 	{
@@ -66,7 +66,7 @@ void	trow_rays(t_raycasting *r)
 			r->map_y += r->step_y;
 			r->side = 1;
 		}
-		if (g_c_map[r->map_x][r->map_y] > 0)
+		if (map[r->map_x][r->map_y] > 0)
 			r->hit = 1;
 	}
 }
@@ -80,7 +80,7 @@ void	raycasting(t_mlx *mlx)
 	{
 		ft_init_raycasting(mlx, &r);
 		check_walls(&r, mlx);
-		trow_rays(&r);
+		trow_rays(&r, mlx->map.xyzc);
 		if (r.side == 0)
 			r.perp_wall_dist = (r.map_x - mlx->pos_x + (1 - r.step_x) / 2)
 				/ r.ray_dir_x;
