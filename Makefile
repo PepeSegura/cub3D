@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/06 14:27:52 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/06 20:16:36 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,10 +59,23 @@ CC = cc
 
 # MAKEFLAGS += -j6
 
+OS = $(shell uname -s)
+
 CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft
-FLAGS_MLX =  -lmlx -framework OpenGL -framework AppKit 
+CFLAGS += -g3
+CFLAGS += -O3
+
+ifeq ($(OS),Darwin)
+	CFLAGS += -D OSX
+	FLAGS_MLX =  -lmlx -framework OpenGL -framework AppKit 
+endif
+ifeq ($(OS),Linux)
+	CFLAGS += -D LINUX
+	FLAGS_MLX =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
+	CFLAGS += -I/usr/include -Imlx_linux
+endif
 
 date := $(shell date +"%a %b %_d %H:%M")
 

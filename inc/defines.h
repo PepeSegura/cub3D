@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/05 23:42:31 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/06 20:17:05 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define WEST_CHAR			'W'
 
 /*__Keys_&_Events__*/
+#ifdef OSX
+#
 # define ESC	53
 # define W		13
 # define A		0
@@ -48,7 +50,24 @@
 # define RIGHT		124
 # define DESTROY 	17
 
+#else
+# ifndef LINUX
+# define LINUX
+# endif
+# define ESC		65307
+# define W		119
+# define A		97
+# define S		115
+# define D		100
+
+# define UP		65362
+# define LEFT		65361
+# define DOWN		65364
+# define RIGHT		65363
+
+
 /*__Errors__*/
 # include "errors.h"
 
+#endif
 #endif
