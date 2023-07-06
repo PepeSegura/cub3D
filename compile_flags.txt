@@ -1,0 +1,4 @@
+-I./libft/inc
+-I./inc
+-I/usr/include
+-Imlx_linux

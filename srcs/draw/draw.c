@@ -6,11 +6,13 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:31:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 13:45:31 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:35:43 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "defines.h"
+#include "mlx.h"
 
 int	get_tex_color(t_mlx *data, int texx, int texy, char *addr)
 {
@@ -73,4 +75,26 @@ void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v)
 	}
 	while (++v->i < SCREEN_HEIGHT)
 		my_mlx_pixel_put(mlx, r->x, v->i, mlx->data.texture.floor_mlx);
+}
+
+void	draw_sky_floor(t_mlx *mlx)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < SCREEN_HEIGHT)
+	{
+		x = 0;
+		while (x < SCREEN_WIDTH)
+		{
+			if (y < SCREEN_HEIGHT / 2)
+				my_mlx_pixel_put(mlx, x, y, mlx->data.texture.ceiling_mlx);
+			else
+				my_mlx_pixel_put(mlx, x, y, mlx->data.texture.floor_mlx);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
 }

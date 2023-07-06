@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 14:25:25 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/06 20:36:29 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 void	raycasting(t_mlx *mlx);
 void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd);
 void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
+void	draw_sky_floor(t_mlx *mlx);
 
 /*__Parse__*/
 void	parse_init(t_data *c, char **argv);
