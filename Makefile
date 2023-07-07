@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/06 20:16:36 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/07/06 20:50:16 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS =												\
 		srcs/raycasting/raycasting.c				\
 		srcs/mlx/key.c								\
 		srcs/mlx/init_mlx.c							\
+		srcs/raycasting/minimap.c
 
 INC =												\
 		inc/cub3d.h									\

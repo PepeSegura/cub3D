@@ -3,35 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 18:39:54 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/06 14:20:27 by psegura-         ###   ########.fr       */
+/*   Created: 2023/07/07 10:56:48 by hakahmed          #+#    #+#             */
+/*   Updated: 2023/07/07 11:00:53 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "mlx.h"
 
 void	move_cam(int keycode, t_mlx *mlx, double old_dir_x, double old_plan_x)
 {
-	if (keycode == LEFT)
-	{
-		old_dir_x = mlx->dir_x;
-		mlx->dir_x = mlx->dir_x * cos(ROT_MS) - mlx->dir_y * sin(ROT_MS);
-		mlx->dir_y = old_dir_x * sin(ROT_MS) + mlx->dir_y * cos(ROT_MS);
-		old_plan_x = mlx->plan_x;
-		mlx->plan_x = mlx->plan_x * cos(ROT_MS) - mlx->plane_y * sin(ROT_MS);
-		mlx->plane_y = old_plan_x * sin(ROT_MS) + mlx->plane_y * cos(ROT_MS);
-	}
+	double	rot_ms;
+	
+	rot_ms = ROT_MS;
 	if (keycode == RIGHT)
-	{
-		old_dir_x = mlx->dir_x;
-		mlx->dir_x = mlx->dir_x * cos(-ROT_MS) - mlx->dir_y * sin(-ROT_MS);
-		mlx->dir_y = old_dir_x * sin(-ROT_MS) + mlx->dir_y * cos(-ROT_MS);
-		old_plan_x = mlx->plan_x;
-		mlx->plan_x = mlx->plan_x * cos(-ROT_MS) - mlx->plane_y * sin(-ROT_MS);
-		mlx->plane_y = old_plan_x * sin(-ROT_MS) + mlx->plane_y * cos(-ROT_MS);
-	}
+		rot_ms = -rot_ms;
+	old_dir_x = mlx->dir_x;
+	mlx->dir_x = mlx->dir_x * cos(rot_ms) - mlx->dir_y * sin(rot_ms);
+	mlx->dir_y = old_dir_x * sin(rot_ms) + mlx->dir_y * cos(rot_ms);
+	old_plan_x = mlx->plan_x;
+	mlx->plan_x = mlx->plan_x * cos(rot_ms) - mlx->plane_y * sin(rot_ms);
+	mlx->plane_y = old_plan_x * sin(rot_ms) + mlx->plane_y * cos(rot_ms);
 }
 
 void	move_player_sides(int keycode, t_mlx *mlx)
@@ -102,9 +96,9 @@ int	keycode_is_in(const int *arr, int size, int number)
 
 int	ft_input(int keycode, t_mlx *mlx)
 {
-	const int	inputs[6] = {W, A, S, D, LEFT, RIGHT};
-	const int	movement[4] = {W, A, S, D};
-	const int	camera[2] = {LEFT, RIGHT};
+	const int	inputs[6] 	= {W, A, S, D, LEFT, RIGHT};
+	const int	movement[4] 	= {W, A, S, D};
+	const int	camera[2] 	= {LEFT, RIGHT};
 	double		old_dir_x;
 	double		old_plan_x;
 
@@ -120,10 +114,7 @@ int	ft_input(int keycode, t_mlx *mlx)
 		move_player(keycode, mlx);
 	if (keycode_is_in(inputs, 6, keycode))
 	{
-		mlx_destroy_image(mlx->mlx, mlx->img);
-		mlx->img = mlx_new_image(mlx->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
-		mlx->addr = mlx_get_data_addr(mlx->img, &(mlx->bits_per_pixel),
-				&(mlx->line_length), &(mlx->endian));
+		mlx_clear_window(mlx->mlx, mlx->win);
 		raycasting(mlx);
 	}
 	return (0);

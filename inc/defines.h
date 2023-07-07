@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 20:17:05 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/06 21:46:39 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 // # define MAP_HEIGHT		24
 # define SCREEN_WIDTH	1280
 # define SCREEN_HEIGHT	720
+
+# define MINIMAP_SIZE	200
+# define CELL_SIZE	5
 
 /*__Map_Chars__*/
 # define VALID_CHARS		" 01NSEW"

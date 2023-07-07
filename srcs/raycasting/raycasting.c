@@ -6,9 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:38:21 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/06 12:12:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/07 10:47:36 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "cub3d.h"
 
@@ -28,6 +30,7 @@ void	ft_init_raycasting(t_mlx *mlx, t_raycasting *r)
 
 void	check_walls(t_raycasting *r, t_mlx *mlx)
 {
+	// r_step_y -1 : 1
 	if (r->ray_dir_x < 0)
 	{
 		r->step_x = -1;
@@ -50,7 +53,7 @@ void	check_walls(t_raycasting *r, t_mlx *mlx)
 	}
 }
 
-void	trow_rays(t_raycasting *r, int **map)
+static void	dda_algo(t_raycasting *r, int **map)
 {
 	while (r->hit == 0)
 	{
@@ -80,12 +83,12 @@ void	raycasting(t_mlx *mlx)
 	{
 		ft_init_raycasting(mlx, &r);
 		check_walls(&r, mlx);
-		trow_rays(&r, mlx->map.xyzc);
+		dda_algo(&r, mlx->map.xyzc);
 		if (r.side == 0)
-			r.perp_wall_dist = (r.map_x - mlx->pos_x + (1 - r.step_x) / 2)
+			r.perp_wall_dist = (r.map_x - mlx->pos_x + ((double)1 - r.step_x) / 2)
 				/ r.ray_dir_x;
 		else
-			r.perp_wall_dist = (r.map_y - mlx->pos_y + (1 - r.step_y) / 2)
+			r.perp_wall_dist = (r.map_y - mlx->pos_y + ((double)1 - r.step_y) / 2)
 				/ r.ray_dir_y;
 		r.line_height = (int)(SCREEN_HEIGHT / r.perp_wall_dist);
 		r.draw_start = -r.line_height / 2 + SCREEN_HEIGHT / 2;

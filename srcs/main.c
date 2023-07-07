@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/06 20:36:36 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/06 22:13:36 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ int	main(int argc, char **argv)
 	parse_init(&mlx.data, argv);
 	parser_map(&mlx);
 	cube_init(&mlx);
-	/* raycasting(&mlx); */
-	draw_sky_floor(&mlx);
+	raycasting(&mlx);
+	/* draw_sky_floor(&mlx); */
+	/* draw_mm_base(&mlx, 150, 200); */
 	mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
 	mlx_hook(mlx.win, 17, 0, hook_exit, &mlx);
 	mlx_loop(mlx.mlx);
-	return (exit(0), 0);
+	return (exit(0), 0); // Pepe esto que coño es????????????
 }
 
 	// atexit(&fleaks);

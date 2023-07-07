@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 20:36:29 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/06 21:58:06 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,8 @@ void	store_textures_and_map(t_file *file);
 int		ft_is_texture(char *line);
 int		check_line(char *str);
 int		check_isles(t_file *file, int i);
+
+/* Minimap */
+void	draw_mm_base(t_mlx *mlx, int h, int w);
+
 #endif
