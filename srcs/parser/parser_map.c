@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 15:02:58 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 14:24:33 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:56:15 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ void	locate_player(t_mlx *mlx)
 		}
 		i++;
 	}
-	if (p_count > 1)
+	if (p_count < 1)
+		ft_print_error("No players found.");
+	else if (p_count > 1)
 		ft_print_error("Too many players found.");
 }
 

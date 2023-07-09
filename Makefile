@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/06 20:50:16 by hakahmed         ###   ########.fr        #
+#    Updated: 2023/07/10 00:44:12 by hakahmed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ ifeq ($(OS),Darwin)
 endif
 ifeq ($(OS),Linux)
 	CFLAGS += -D LINUX
+	CFLAGS += -fsanitize=leak -g3
 	FLAGS_MLX =  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
+	FLAGS_MLX +=  -fsanitize=leak
 	CFLAGS += -I/usr/include -Imlx_linux
 endif
 

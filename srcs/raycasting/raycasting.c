@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 17:38:21 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/07 10:47:36 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/10 00:38:27 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_init_raycasting(t_mlx *mlx, t_raycasting *r)
 
 void	check_walls(t_raycasting *r, t_mlx *mlx)
 {
-	// r_step_y -1 : 1
 	if (r->ray_dir_x < 0)
 	{
 		r->step_x = -1;
