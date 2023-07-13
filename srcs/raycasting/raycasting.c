@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:16:16 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/13 19:16:45 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:47:51 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 
 #include "cub3d.h"
 #include "defines.h"
+#include "libft.h"
 #include "mlx.h"
 #include "structures.h"
 
 static void	initialize(t_mlx *mlx, t_raycasting* r)
 {
-	r->camera_x = 2 * mlx->x / (double)SCREEN_WIDTH - 1;
+	r->camera_x = 2 * r->x / (double)SCREEN_WIDTH - 1;
 	r->ray_dir_x = mlx->dir_x + mlx->plan_x * r->camera_x;
 	r->ray_dir_y = mlx->dir_y + mlx->plane_y * r->camera_x;
 	r->delta_dist_x = fabs(1 / r->ray_dir_x);
@@ -56,24 +57,29 @@ static void	calc_step(t_mlx *mlx, t_raycasting* r)
 
 static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 {
-	calc_step(mlx, r);
 	while (TRUE)
 	{
 		if (r->side_dist_x < r->side_dist_y)
 		{
 			r->side_dist_x += r->delta_dist_x;
 			r->map_x += r->step_x;
-			r->side = EW;
+			r->side = 0;
 		}
 		else
 		{
 			r->side_dist_y += r->delta_dist_y;
 			r->map_y += r->step_y;
-			r->side = NS;
+			r->side = 1;
 		}
 		if (mlx->map.xyzc[r->map_x][r->map_y] > 0)
 			break;
 	}
+	/* if (r->side == 0) */
+	/* 	r->perp_wall_dist = (r->map_x - mlx->pos_x + ((double)1 - r->step_x) / 2) */
+	/* 		/ r->ray_dir_x; */
+	/* else */
+		/* r->perp_wall_dist = (r->map_y - mlx->pos_y + ((double)1 - r->step_y) / 2) */
+				/* / r->ray_dir_y; */
 	if (r->side == EW)
 		r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
 	else
@@ -83,6 +89,7 @@ static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 static void 	cast_rays(t_mlx *mlx, t_raycasting* r)
 {
 	initialize(mlx, r);
+	calc_step(mlx, r);
 	digital_differential_analyzer(mlx, r);
 	r->line_height = SCREEN_HEIGHT / r->perp_wall_dist;
 	r->draw_start = -r->line_height / 2 + SCREEN_HEIGHT / 2;
@@ -102,7 +109,7 @@ void	raycasting(t_mlx *mlx)
 	if (!r)
 		return ;
 	r->x = -1;
-	while (++r->x < SCREEN_WIDTH)
+	while (++(r->x) < SCREEN_WIDTH)
 		cast_rays(mlx, r);
 	free(r);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);

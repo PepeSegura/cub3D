@@ -6,9 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/13 19:02:31 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:29:15 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "cub3d.h"
 
@@ -31,9 +33,5 @@ int	main(int argc, char **argv)
 	mlx_hook(mlx.win, 2, 1L << 0, ft_input, &mlx);
 	mlx_hook(mlx.win, 17, 0, hook_exit, &mlx);
 	mlx_loop(mlx.mlx);
-	return (exit(0), 0); // Pepe esto que coño es????????????
+	return (EXIT_SUCCESS);
 }
-
-	// atexit(&fleaks);
-	//mlx_key_hook(mlx.win, ft_input, &mlx);
-	//mlx_hook(data->win_ptr, 3, 1L << 1, key_released, data);
