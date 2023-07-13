@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:16:16 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/13 19:51:27 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:16:23 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 static void	initialize(t_mlx *mlx, t_raycasting* r)
 {
 	r->camera_x = 2 * r->x / (double)SCREEN_WIDTH - 1;
-	r->ray_dir_x = mlx->dir_x + mlx->plan_x * r->camera_x;
+	r->ray_dir_x = mlx->dir_x + mlx->plane_x * r->camera_x;
 	r->ray_dir_y = mlx->dir_y + mlx->plane_y * r->camera_x;
 	r->delta_dist_x = fabs(1 / r->ray_dir_x);
 	r->delta_dist_y = fabs(1 / r->ray_dir_y);

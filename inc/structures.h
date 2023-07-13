@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 20:49:54 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:15:24 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct s_mlx {
 	double			pos_y;
 	double			dir_x;
 	double			dir_y;
-	double			plan_x;
+	double			plane_x;
 	double			plane_y;
 	t_image			tex[4];
 	int				x;

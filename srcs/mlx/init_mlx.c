@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:09:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 14:14:31 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:16:14 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	set_spawn(t_mlx *mlx)
 	if (mlx->player.facing == 'E')
 	{
 		mlx->dir_y = 1;
-		mlx->plan_x = 0.66;
+		mlx->plane_x = 0.66;
 	}
 	if (mlx->player.facing == 'W')
 	{
 		mlx->dir_y = -1;
-		mlx->plan_x = -0.66;
+		mlx->plane_x = -0.66;
 	}
 }
 

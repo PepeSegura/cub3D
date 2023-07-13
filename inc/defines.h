@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/13 18:52:51 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 01:13:56 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # define FALSE 			0
 
 /*__Game_Settings__*/
-# define MS				1
-# define ROT_MS			0.2
+# define MS				0.6
+# define ROT_MS			0.1
 
 // # define MAP_WIDTH		24
 // # define MAP_HEIGHT		24
