@@ -6,7 +6,7 @@
 /*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:16:16 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/13 19:47:51 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:51:27 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	calc_step(t_mlx *mlx, t_raycasting* r)
 
 static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 {
+	calc_step(mlx, r);
 	while (TRUE)
 	{
 		if (r->side_dist_x < r->side_dist_y)
@@ -74,13 +75,7 @@ static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 		if (mlx->map.xyzc[r->map_x][r->map_y] > 0)
 			break;
 	}
-	/* if (r->side == 0) */
-	/* 	r->perp_wall_dist = (r->map_x - mlx->pos_x + ((double)1 - r->step_x) / 2) */
-	/* 		/ r->ray_dir_x; */
-	/* else */
-		/* r->perp_wall_dist = (r->map_y - mlx->pos_y + ((double)1 - r->step_y) / 2) */
-				/* / r->ray_dir_y; */
-	if (r->side == EW)
+	if (r->side == 0)
 		r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
 	else
 		r->perp_wall_dist = r->side_dist_y - r->delta_dist_y;
@@ -89,7 +84,6 @@ static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 static void 	cast_rays(t_mlx *mlx, t_raycasting* r)
 {
 	initialize(mlx, r);
-	calc_step(mlx, r);
 	digital_differential_analyzer(mlx, r);
 	r->line_height = SCREEN_HEIGHT / r->perp_wall_dist;
 	r->draw_start = -r->line_height / 2 + SCREEN_HEIGHT / 2;
@@ -103,14 +97,11 @@ static void 	cast_rays(t_mlx *mlx, t_raycasting* r)
 
 void	raycasting(t_mlx *mlx)
 {
-	t_raycasting	*r;
+	t_raycasting	r;
 
-	r = ft_calloc(sizeof(t_raycasting), 1);
-	if (!r)
-		return ;
-	r->x = -1;
-	while (++(r->x) < SCREEN_WIDTH)
-		cast_rays(mlx, r);
-	free(r);
+	ft_bzero(&r, sizeof(r));
+	r.x = -1;
+	while (++(r.x) < SCREEN_WIDTH)
+		cast_rays(mlx, &r);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img, 0, 0);
 }
