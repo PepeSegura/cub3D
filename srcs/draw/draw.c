@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:31:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/07 10:49:55 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:16:48 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_tex_color(t_mlx *data, int texx, int texy, char *addr)
 	return (0);
 }
 
-void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd)
+void	vertical_texture(t_raycasting *r, t_mlx	*mlx)
 {
 	t_vtex	v;
 
@@ -29,9 +29,9 @@ void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd)
 	v.tex[2] = r->x;
 	v.line_h = r->draw_end - r->draw_start;
 	if (r->side == 0)
-		v.wallx = mlx->pos_y + pwd * r->ray_dir_y;
+		v.wallx = mlx->pos_y + r->perp_wall_dist * r->ray_dir_y;
 	else
-		v.wallx = mlx->pos_x + pwd * r->ray_dir_x;
+		v.wallx = mlx->pos_x + r->perp_wall_dist * r->ray_dir_x;
 	v.wallx -= floor(v.wallx);
 	v.tex[0] = (int)(v.wallx * (double)mlx->x);
 	if (r->side == 0 && r->ray_dir_x > 0)
@@ -39,7 +39,7 @@ void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd)
 	else if (r->side == 1 && r->ray_dir_y < 0)
 		v.tex[0] = 64 - v.tex[0] - 1;
 	v.pos[1] = ((double)mlx->y / r->line_height);
-	v.pos[0] = (v.wallx) + ((r->line_height - v.line_h) / 2) * v.pos[1];
+	v.pos[0] = (v.wallx) + ((r->line_height - v.line_h) / (double)2) * v.pos[1];
 	draw_textures(r, mlx, &v);
 }
 

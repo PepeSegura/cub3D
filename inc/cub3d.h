@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 21:58:06 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 19:16:27 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		hook_exit(t_mlx *mlx);
 void	cube_init(t_mlx *mlx);
 void	my_mlx_pixel_put(t_mlx *data, int x, int y, int color);
 void	raycasting(t_mlx *mlx);
-void	vertical_texture(t_raycasting *r, t_mlx	*mlx, double pwd);
+void	vertical_texture(t_raycasting *r, t_mlx	*mlx);
 void	draw_textures(t_raycasting *r, t_mlx *mlx, t_vtex *v);
 void	draw_sky_floor(t_mlx *mlx);
 

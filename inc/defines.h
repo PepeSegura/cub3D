@@ -6,7 +6,7 @@
 /*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 21:46:39 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/13 18:52:51 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@
 # define SOUTH_CHAR			'S'
 # define EAST_CHAR			'E'
 # define WEST_CHAR			'W'
+
+enum e_sides
+{
+	EW,
+	NS
+};
 
 /*__Keys_&_Events__*/
 #ifdef OSX
