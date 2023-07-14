@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/13 19:16:27 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 17:21:01 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libs.h"
 # include "defines.h"
 # include "structures.h"
+# include "errors.h"
 
 /*__Libft__*/
 # include "../libft/inc/libft.h"

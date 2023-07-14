@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defines.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 01:13:56 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:45:10 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,33 @@ enum e_sides
 };
 
 /*__Keys_&_Events__*/
-#ifdef OSX
-#
-# define ESC	53
-# define W		13
-# define A		0
-# define S		1
-# define D		2
+# ifdef OSX
+#  define ESC	53
+#  define W		13
+#  define A		0
+#  define S		1
+#  define D		2
 
-# define UP			126
-# define LEFT		123
-# define DOWN		125
-# define RIGHT		124
-# define DESTROY 	17
+#  define UP			126
+#  define LEFT		123
+#  define DOWN		125
+#  define RIGHT		124
+#  define DESTROY 	17
 
-#else
-# ifndef LINUX
-# define LINUX
+# else
+#  ifndef LINUX
+#   define LINUX
+#  endif
+#  define ESC		65307
+#  define W		119
+#  define A		97
+#  define S		115
+#  define D		100
+
+#  define UP		65362
+#  define LEFT		65361
+#  define DOWN		65364
+#  define RIGHT		65363
+
 # endif
-# define ESC		65307
-# define W		119
-# define A		97
-# define S		115
-# define D		100
-
-# define UP		65362
-# define LEFT		65361
-# define DOWN		65364
-# define RIGHT		65363
-
-
-/*__Errors__*/
-# include "errors.h"
-
-#endif
 #endif

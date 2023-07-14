@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:56:48 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/14 01:29:18 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:42:54 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	move_cam(int keycode, t_mlx *mlx)
 	double	rot_ms;
 	double	old_dir_x;
 	double	old_plane_x;
-	
+
 	rot_ms = ROT_MS;
 	if (keycode == RIGHT)
 		rot_ms = -rot_ms;
@@ -98,9 +98,9 @@ int	keycode_is_in(const int *arr, int size, int number)
 
 int	ft_input(int keycode, t_mlx *mlx)
 {
-	const int	inputs[6] 	= {W, A, S, D, LEFT, RIGHT};
-	const int	movement[4] 	= {W, A, S, D};
-	const int	camera[2] 	= {LEFT, RIGHT};
+	const int	inputs[6] = {W, A, S, D, LEFT, RIGHT};
+	const int	movement[4] = {W, A, S, D};
+	const int	camera[2] = {LEFT, RIGHT};
 
 	if (keycode == ESC)
 		exit(1);

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 18:49:32 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/01 18:56:22 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:40:23 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int	valid_bottom_row(char **matrix)
 	col = 0;
 	len = ft_len_matrix(matrix);
 	last = len - 1;
-	while (matrix[last] && matrix[last][col])
+	while (last >= 0 && col >= 0 && matrix[last] && matrix[last][col])
 	{
 		last = len - 1;
 		if (!ft_strchr(VALID_BORDER, matrix[last][col]))
 			ft_print_error(INVALID_BORDER);
-		while (last >= 0)
+		while (last >= 0 && col >= 0)
 		{
 			if (matrix[last][col] == ' ')
 				last--;

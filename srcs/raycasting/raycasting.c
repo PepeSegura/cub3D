@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakahmed <hakahmed@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:16:16 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/14 01:40:43 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:39:58 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "mlx.h"
 #include "structures.h"
 
-static void	initialize(t_mlx *mlx, t_raycasting* r)
+static void	initialize(t_mlx *mlx, t_raycasting *r)
 {
 	r->camera_x = 2 * r->x / (double)SCREEN_WIDTH - 1;
 	r->ray_dir_x = mlx->dir_x + mlx->plane_x * r->camera_x;
@@ -31,7 +31,7 @@ static void	initialize(t_mlx *mlx, t_raycasting* r)
 	r->map_y = mlx->pos_y;
 }
 
-static void	calc_step(t_mlx *mlx, t_raycasting* r)
+static void	calc_step(t_mlx *mlx, t_raycasting *r)
 {
 	if (r->ray_dir_x < 0)
 	{
@@ -55,7 +55,7 @@ static void	calc_step(t_mlx *mlx, t_raycasting* r)
 	}
 }
 
-static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
+static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting *r)
 {
 	calc_step(mlx, r);
 	while (TRUE)
@@ -73,7 +73,7 @@ static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 			r->side = 1;
 		}
 		if (mlx->map.xyzc[r->map_x][r->map_y] > 0)
-			break;
+			break ;
 	}
 	if (r->side == 0)
 		r->perp_wall_dist = r->side_dist_x - r->delta_dist_x;
@@ -81,7 +81,7 @@ static void	digital_differential_analyzer(t_mlx *mlx, t_raycasting* r)
 		r->perp_wall_dist = r->side_dist_y - r->delta_dist_y;
 }
 
-static void 	cast_rays(t_mlx *mlx, t_raycasting* r)
+static void	cast_rays(t_mlx *mlx, t_raycasting *r)
 {
 	initialize(mlx, r);
 	digital_differential_analyzer(mlx, r);

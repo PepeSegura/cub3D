@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 02:09:12 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:41:41 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	get_colors(t_data *c, char **aux)
 	}
 }
 
-static char *free_dup(char *t, const char *s)
+static char	*free_dup(char *t, const char *s)
 {
 	free(t);
 	return (ft_strdup(s));
