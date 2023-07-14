@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/06 14:26:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/14 02:09:12 by hakahmed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void	get_colors(t_data *c, char **aux)
 	}
 }
 
+static char *free_dup(char *t, const char *s)
+{
+	free(t);
+	return (ft_strdup(s));
+}
+
 void	set_textures(t_data *c)
 {
 	int		i;
@@ -46,13 +52,13 @@ void	set_textures(t_data *c)
 		if (!aux[1])
 			ft_print_error(MISSING_TEXTURES);
 		if (ft_strcmp(aux[0], "NO") == 0)
-			c->texture.north = ft_strdup(aux[1]);
+			c->texture.north = free_dup(c->texture.north, aux[1]);
 		if (ft_strcmp(aux[0], "SO") == 0)
-			c->texture.south = ft_strdup(aux[1]);
+			c->texture.south = free_dup(c->texture.south, aux[1]);
 		if (ft_strcmp(aux[0], "WE") == 0)
-			c->texture.west = ft_strdup(aux[1]);
+			c->texture.west = free_dup(c->texture.west, aux[1]);
 		if (ft_strcmp(aux[0], "EA") == 0)
-			c->texture.east = ft_strdup(aux[1]);
+			c->texture.east = free_dup(c->texture.east, aux[1]);
 		if (ft_strcmp(aux[0], "C") == 0 || ft_strcmp(aux[0], "F") == 0)
 			get_colors(c, aux);
 		ft_free_matrix(aux);
