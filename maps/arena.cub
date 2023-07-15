@@ -1,8 +1,8 @@
-NO ./pics/wall_north.xpm
+NO ./pics/wall_north.xpm           
 SO ./pics/wall_south.xpm
 EA ./pics/wall_east.xpm
-WE ./pics/wall_west.xpm
-C 76,137,166
+WE ./pics/metro.xpm
+C  76,10,123
 F 48,44,52
 
                               11111111

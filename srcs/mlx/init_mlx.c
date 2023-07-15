@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:09:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 01:16:14 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:24:28 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,6 @@ void	set_spawn(t_mlx *mlx)
 void	cube_init(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
-	mlx->img = mlx_new_image(mlx->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
-	mlx->win = mlx_new_window(mlx->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
-	mlx->addr = mlx_get_data_addr(mlx->img, &(mlx->bits_per_pixel),
-			&(mlx->line_length), &(mlx->endian));
 	mlx->pos_x = (double)mlx->player.x + 0.5;
 	mlx->pos_y = (double)mlx->player.y + 0.5;
 	set_spawn(mlx);
@@ -105,4 +101,8 @@ void	cube_init(t_mlx *mlx)
 	mlx->y = 64;
 	all_xpm_to_img(mlx);
 	all_img_data(mlx);
+	mlx->img = mlx_new_image(mlx->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	mlx->win = mlx_new_window(mlx->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D");
+	mlx->addr = mlx_get_data_addr(mlx->img, &(mlx->bits_per_pixel),
+			&(mlx->line_length), &(mlx->endian));
 }

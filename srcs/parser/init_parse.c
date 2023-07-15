@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 00:51:56 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:41:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/15 17:40:26 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	set_textures(t_data *c)
 		aux = ft_split(c->file.textures[i], ' ');
 		if (!aux[1])
 			ft_print_error(MISSING_TEXTURES);
+		if (ft_len_matrix(aux) != 2)
+			ft_print_error("To many info on the texture lines.");
 		if (ft_strcmp(aux[0], "NO") == 0)
 			c->texture.north = free_dup(c->texture.north, aux[1]);
 		if (ft_strcmp(aux[0], "SO") == 0)
