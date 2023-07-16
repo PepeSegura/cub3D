@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
+#    By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/01 18:16:42 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/16 14:03:45 by pepe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRCS = 								\
 	srcs/ft_printf.c				\
 	srcs/ft_putnbr_base.c			\
 	srcs/ft_printf_utils.c			\
+	srcs/ft_print_memory.c			\
 
 OBJS = $(SRCS:%.c=objs/%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:40:34 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/15 17:06:47 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/16 14:28:52 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**check_color_errors(char *str, char **matrix)
 	{
 		if (!ft_isdigit(str[i]) && str[i] != ',')
 			ft_print_error("Color: Invalid char in the colors!");
-		if (str[i] == ',' && str[i + 1] &&  str[i + 1] == ',')
+		if (str[i] == ',' && str[i + 1] && str[i + 1] == ',')
 			ft_print_error("Color: Too many \",\" found in the colors!");
 		i++;
 	}

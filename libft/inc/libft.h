@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 16:44:42 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/01 18:13:59 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/16 14:17:00 by pepe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ int			ft_strlen_printf(char *str);
 int			ft_putnbr_base(size_t nbr, char *b);
 int			ft_putnbr(int n);
 int			ft_pointer(void *p);
+void		*ft_print_memory(void *p);
 
 #endif
