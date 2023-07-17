@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/15 17:46:01 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/17 15:43:19 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS =												\
 		srcs/raycasting/raycasting.c				\
 		srcs/mlx/key.c								\
 		srcs/mlx/init_mlx.c							\
-		srcs/raycasting/minimap.c
+													\
+		srcs/minimap/minimap.c						\
 
 INC =												\
 		inc/cub3d.h									\
@@ -89,8 +90,8 @@ $(NAME): $(INC) objs $(OBJS)
 	@echo "$(CYAN)CUB3D RIDERS GOING AFTER YOU $(WHITE)"
 
 objs:
-	@mkdir -p	objs/srcs/draw		objs/srcs/mlx			objs/srcs/other	\
-				objs/srcs/parser	objs/srcs/raycasting	
+	@mkdir -p	objs/srcs/draw		objs/srcs/mlx			objs/srcs/other		\
+				objs/srcs/parser	objs/srcs/raycasting	objs/srcs/minimap	\
 
 objs/%.o: %.c $(INC)
 	$(CC) $(CFLAGS) -c $< -o $@

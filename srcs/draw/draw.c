@@ -6,13 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 20:31:36 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/13 19:16:48 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:47:54 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
-#include "mlx.h"
 
 int	get_tex_color(t_mlx *data, int texx, int texy, char *addr)
 {

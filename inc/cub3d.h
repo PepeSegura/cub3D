@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 17:21:01 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 15:36:34 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ int		check_line(char *str);
 int		check_isles(t_file *file, int i);
 
 /* Minimap */
-void	draw_mm_base(t_mlx *mlx, int h, int w);
+void	draw_minimap(t_mlx *mlx);
 
 #endif

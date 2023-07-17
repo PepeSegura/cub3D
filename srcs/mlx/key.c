@@ -6,12 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 10:56:48 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/14 18:42:54 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:47:34 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "mlx.h"
 
 void	move_cam(int keycode, t_mlx *mlx)
 {

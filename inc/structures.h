@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 01:15:24 by hakahmed         ###   ########.fr       */
+/*   Updated: 2023/07/17 14:55:01 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_textures {
 
 typedef struct s_map {
 	char	*dir;
+	int		wide;
+	int		height;
 	int		**xyzc;
 }	t_map;
 
@@ -98,8 +100,6 @@ typedef struct s_mlx {
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
-	int				size_x;
-	int				size_y;
 	double			pos_x;
 	double			pos_y;
 	double			dir_x;

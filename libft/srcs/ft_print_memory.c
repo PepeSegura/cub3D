@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pepe <pepe@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:00:27 by pepe              #+#    #+#             */
-/*   Updated: 2023/07/16 14:28:17 by pepe             ###   ########.fr       */
+/*   Updated: 2023/07/17 16:43:39 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	print_first_colum(void *p)
 {
-    ft_printf("%p: ", p);
+	ft_printf("%p: ", p);
 }
 
 void	print_middle_column(void *p)
@@ -62,8 +62,8 @@ void	print_last_column(void *addr)
 
 void	*ft_print_memory(void *addr)
 {
-	int 	count;
-	int 	size;
+	int		count;
+	int		size;
 	char	*str;
 
 	count = 0;

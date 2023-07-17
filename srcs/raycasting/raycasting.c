@@ -6,19 +6,11 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 12:16:16 by hakahmed          #+#    #+#             */
-/*   Updated: 2023/07/14 18:39:58 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:46:59 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Starting from scratch...
-
-#include <math.h>
-
 #include "cub3d.h"
-#include "defines.h"
-#include "libft.h"
-#include "mlx.h"
-#include "structures.h"
 
 static void	initialize(t_mlx *mlx, t_raycasting *r)
 {

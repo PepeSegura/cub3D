@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   minimap_hakim.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:38:02 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/14 18:38:42 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 16:47:10 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "defines.h"
-#include "mlx.h"
-#include "structures.h"
-
-/* void	draw_minimap(t_mlx *mlx) */
-/* { */
-/* 	int	i; */
-/* 	int	j; */
-
-/* } */
 
 void	draw_mm_base(t_mlx *mlx, int h, int w)
 {
