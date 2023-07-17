@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:30:36 by davgarci          #+#    #+#             */
-/*   Updated: 2023/07/17 16:42:45 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:08:28 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 #include "cub3d.h"
 
-void	fleaks(void)
-{
-	system("leaks -q cub3D");
-}
+// void	fleaks(void)
+// {
+// 	system("leaks -q cub3D");
+// }
 
 int	main(int argc, char **argv)
 {

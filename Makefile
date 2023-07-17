@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 16:12:27 by psegura-          #+#    #+#              #
-#    Updated: 2023/07/17 15:43:19 by psegura-         ###   ########.fr        #
+#    Updated: 2023/07/17 18:08:14 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ CC = cc
 
 OS = $(shell uname -s)
 
-CFLAGS = -Wall -Wextra -Werror -O3 -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -O3 #-g3 -fsanitize=address
 CFLAGS += -I inc
 CFLAGS += -I libft/inc
 CFLAGS += -g3

@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:09:39 by psegura-          #+#    #+#             */
-/*   Updated: 2023/07/17 16:47:41 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/07/17 18:04:33 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,20 @@ void	all_xpm_to_img(t_mlx *mlx)
 {
 	mlx->tex[NORTH].img = mlx_xpm_file_to_image(mlx->mlx,
 			mlx->data.texture.north, &mlx->x, &mlx->y);
+	if (mlx->x != 64 || mlx->y != 64)
+		ft_print_error("Invalid img size, use 64x64.");
 	mlx->tex[SOUTH].img = mlx_xpm_file_to_image(mlx->mlx,
 			mlx->data.texture.south, &mlx->x, &mlx->y);
+	if (mlx->x != 64 || mlx->y != 64)
+		ft_print_error("Invalid img size, use 64x64.");
 	mlx->tex[EAST].img = mlx_xpm_file_to_image(mlx->mlx,
 			mlx->data.texture.east, &mlx->x, &mlx->y);
+	if (mlx->x != 64 || mlx->y != 64)
+		ft_print_error("Invalid img size, use 64x64.");
 	mlx->tex[WEST].img = mlx_xpm_file_to_image(mlx->mlx,
 			mlx->data.texture.west, &mlx->x, &mlx->y);
+	if (mlx->x != 64 || mlx->y != 64)
+		ft_print_error("Invalid img size, use 64x64.");
 	check_mlx_worked(mlx, IMG);
 }
 

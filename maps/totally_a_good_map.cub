@@ -1,10 +1,10 @@
 C 155,96,4
 F 200,200,150
 
-NO ./pics/wall_north.xpm
-SO ./pics/wall_north.xpm
-WE ./pics/wall_north.xpm
-EA ./pics/wall_north.xpm
+NO ./xpm/wall_north.xpm
+SO ./xpm/wall_north.xpm
+WE ./xpm/wall_north.xpm
+EA ./xpm/wall_north.xpm
 
       
 
